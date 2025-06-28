@@ -42,7 +42,11 @@ export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: "https://elite-leather-server-production.up.railway.app",
-        credentials: "include"
+        credentials: "include",
+        prepareHeaders: (headers) => {
+            headers.set("Access-Control-Allow-Origin", "https://elite-leather-client.vercel.app");
+            return headers;
+        }
     }),
     tagTypes: ["Products", "Cart", "User", "Order", "Catalog"],
     endpoints: (builder) => ({
