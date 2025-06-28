@@ -19,7 +19,7 @@ import { CartUpdate } from "./cart-update"
 import { ShoppingBag } from "lucide-react"
 
 export const Cart = () => {
-    const { data, isLoading, isError, refetch } = useGetCartQuery()
+    const { data, isLoading, refetch } = useGetCartQuery()
     const [postOrder] = usePostOrderMutation()
 
 
