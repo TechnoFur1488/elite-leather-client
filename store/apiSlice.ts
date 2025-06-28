@@ -41,7 +41,7 @@ interface Catalog {
 export const apiSlice = createApi({
     reducerPath: "api",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:5000",
+        baseUrl: "https://elite-leather-server-production.up.railway.app",
         credentials: "include"
     }),
     tagTypes: ["Products", "Cart", "User", "Order", "Catalog"],
