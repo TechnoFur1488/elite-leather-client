@@ -43,10 +43,6 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://elite-leather-server-production.up.railway.app",
         credentials: "include",
-        prepareHeaders: (headers) => {
-            headers.set("Content-Type", "application/json");
-            return headers;
-        }
     }),
     tagTypes: ["Products", "Cart", "User", "Order", "Catalog"],
     endpoints: (builder) => ({
