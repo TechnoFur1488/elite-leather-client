@@ -34,9 +34,11 @@ export default function AdminPanelPage() {
         setRole(localStorage.getItem("role") || "")
     }, [])
 
-    if (role !== "ADMIN") {
-        notFound()
-    }
+    // if (role !== "ADMIN") {
+    //     notFound()
+    // }
+
+    console.log(role);
 
     return (
         <Container>
