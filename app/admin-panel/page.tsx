@@ -28,17 +28,20 @@ export default function AdminPanelPage() {
     //     notFound()
     // }
 
-    const [role, setRole] = useState("")
+    const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
 
     useEffect(() => {
-        setRole(localStorage.getItem("role") || "")
-    }, [])
+        const role = localStorage.getItem("role")
+        setIsAdmin(role === "ADMIN")
+    }, []);
 
-    if (role !== "ADMIN") {
-        notFound()
+    if (isAdmin === null) {
+        return <div>Loading...</div>
     }
 
-    console.log(role);
+    if (!isAdmin) {
+        notFound();
+    }
 
     return (
         <Container>
