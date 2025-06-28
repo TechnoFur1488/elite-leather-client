@@ -60,7 +60,7 @@ export const AuthSignin = () => {
                                     Введите email и пароль для входа в аккаунт
                                 </CardDescription>
                                 <CardAction>
-                                    <Link href={"/auth/signin"}>
+                                    <Link href={"/auth/signup"}>
                                         Зарегистрироваться
                                     </Link>
                                 </CardAction>

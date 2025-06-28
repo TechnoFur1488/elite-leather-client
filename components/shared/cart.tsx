@@ -64,7 +64,6 @@ export const Cart = () => {
     const totalSum = total.reduce((sum, num) => sum + num, 0)
 
     if (isLoading) return <div>Загрузка...</div>
-    if (isError) return <div>Ошибка</div>
 
     return (
         <div className={"fixed top-10 right-5"}>
