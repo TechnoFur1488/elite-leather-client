@@ -44,7 +44,7 @@ export const apiSlice = createApi({
         baseUrl: "https://elite-leather-server-production.up.railway.app",
         credentials: "include",
         prepareHeaders: (headers) => {
-            headers.set("Access-Control-Allow-Origin", "https://elite-leather-client.vercel.app");
+            headers.set("Content-Type", "application/json");
             return headers;
         }
     }),
