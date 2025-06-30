@@ -12,7 +12,7 @@ export const Products = () => {
     if (isLoading) return <div>Загрузка...</div>
     if (isError) return <div>Ошибка</div>
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_API_URL || "http://localhost:5000/"
+    const baseUrl = process.env.NEXT_PUBLIC_APP_API_URL || "https://elite-leather-server-production.up.railway.app/"
 
     return (
         <>

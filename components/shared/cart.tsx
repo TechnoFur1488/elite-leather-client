@@ -56,7 +56,7 @@ export const Cart = () => {
         }
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_API_URL || "http://localhost:5000/"
+    const baseUrl = process.env.NEXT_PUBLIC_APP_API_URL || "https://elite-leather-server-production.up.railway.app/"
 
     const cartItem = data?.cartItem || []
 

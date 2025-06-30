@@ -32,7 +32,7 @@ export const ProductOption = () => {
 
     const oneProduct = data.oneProduct
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_API_URL || "http://localhost:5000/"
+    const baseUrl = process.env.NEXT_PUBLIC_APP_API_URL || "https://elite-leather-server-production.up.railway.app/"
 
     return (
         <div className="px-4 md:px-0">
