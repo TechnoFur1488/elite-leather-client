@@ -20,7 +20,7 @@ export const Products = () => {
             <h2 className={"pt-10 md:pt-15 lg:pt-25 text-2xl md:text-3xl lg:text-5xl text-center md:text-left px-4 md:px-0"}>Продукты ({data?.allProduct.length})</h2>
             <div className={"grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-6 md:pt-9 gap-4 md:gap-6 lg:gap-y-7.5 px-4 md:px-0"}>
                 {data?.allProduct.map(el => (
-                    <div key={el.id} className="flex flex-col items-start">
+                    <div key={el.id} className="flex flex-col items-start relative">
                         <div className="w-full max-w-xs">
                             <Link href={`/product/${el.id}`} className="block">
                                 <div className={"relative w-full aspect-square mb-3"}>
