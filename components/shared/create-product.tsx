@@ -132,7 +132,7 @@ export const CreateProduct = () => {
                                 <FormField
                                     control={form.control}
                                     name="img"
-                                    render={({ field: { ref, ...rest } }) => (
+                                    render={({ field: { onChange, onBlur, name, ref } }) => (
                                         <FormItem>
                                             <FormLabel>Фото</FormLabel>
                                             <FormControl>
@@ -140,12 +140,20 @@ export const CreateProduct = () => {
                                                     <Input
                                                         multiple
                                                         type="file"
-                                                        {...rest}
+                                                        name={name}
+                                                        onBlur={onBlur}
                                                         ref={e => {
                                                             ref(e)
                                                             inputRef.current = e
                                                         }}
-                                                        onChange={(e) => handleFileChange(e)}
+                                                        onChange={(e) => {
+                                                            onChange(e.target.files)
+                                                            if (e.target.files) {
+                                                                const files = Array.from(e.target.files)
+                                                                const urls = files.map(file => URL.createObjectURL(file))
+                                                                setPreviewUrls(urls)
+                                                            }
+                                                        }}
                                                         accept="image/*,.png,.jpg,.web"
                                                     />
                                                     <div className={"grid grid-cols-5 gap-x-5 gap-y-10 my-5"}>
