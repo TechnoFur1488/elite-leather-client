@@ -83,16 +83,6 @@ export const CreateProduct = () => {
         }
     }
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-            form.setValue("img", e.target.files)
-
-            const files = Array.from(e.target.files)
-            const urls = files.map(file => URL.createObjectURL(file))
-            setPreviewUrls(urls)
-        }
-    }
-
     const handleRemoveFile = (index: number) => {
         const newUrls = [...previewUrls]
         URL.revokeObjectURL(newUrls[index])
