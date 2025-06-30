@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useCreateProductMutation, useGetAllCatalogQuery } from "@/store/apiSlice"
 import { Input } from "../ui/input"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Container } from "./container"
 import Image from "next/image"
 import { Trash2 } from "lucide-react"
@@ -19,6 +19,7 @@ export const CreateProduct = () => {
     const { data: catalog } = useGetAllCatalogQuery()
     const [previewUrls, setPreviewUrls] = useState<string[]>([])
     const [postProduct] = useCreateProductMutation()
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
     const formSchema = z.object({
         img: z.any()
@@ -75,6 +76,7 @@ export const CreateProduct = () => {
 
             form.reset()
             setPreviewUrls([])
+            if (inputRef.current) inputRef.current.value = "";
         } catch (err) {
             alert("Не удалось создать товар")
             console.error(err)
@@ -110,6 +112,10 @@ export const CreateProduct = () => {
             })
 
             form.setValue("img", dataTransfer.files)
+
+            if (files.length === 0 && inputRef.current) {
+                inputRef.current.value = "";
+            }
         }
     }
 
@@ -131,7 +137,7 @@ export const CreateProduct = () => {
                                             <FormLabel>Фото</FormLabel>
                                             <FormControl>
                                                 <div>
-                                                    <Input multiple type="file" {...rest} onChange={(e) => handleFileChange(e)} accept="image/*,.png,.jpg,.web" />
+                                                    <Input ref={inputRef} multiple type="file" {...rest} onChange={(e) => handleFileChange(e)} accept="image/*,.png,.jpg,.web" />
                                                     <div className={"grid grid-cols-5 gap-x-5 gap-y-10 my-5"}>
                                                         {previewUrls.map((el: string, i: number) => (
                                                             <div key={i} className={"flex w-30 relative"}>
