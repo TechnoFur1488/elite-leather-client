@@ -132,12 +132,22 @@ export const CreateProduct = () => {
                                 <FormField
                                     control={form.control}
                                     name="img"
-                                    render={({ field: { ...rest } }) => (
+                                    render={({ field: { ref, ...rest } }) => (
                                         <FormItem>
                                             <FormLabel>Фото</FormLabel>
                                             <FormControl>
                                                 <div>
-                                                    <Input ref={inputRef} multiple type="file" {...rest} onChange={(e) => handleFileChange(e)} accept="image/*,.png,.jpg,.web" />
+                                                    <Input
+                                                        multiple
+                                                        type="file"
+                                                        {...rest}
+                                                        ref={e => {
+                                                            ref(e)
+                                                            inputRef.current = e
+                                                        }}
+                                                        onChange={(e) => handleFileChange(e)}
+                                                        accept="image/*,.png,.jpg,.web"
+                                                    />
                                                     <div className={"grid grid-cols-5 gap-x-5 gap-y-10 my-5"}>
                                                         {previewUrls.map((el: string, i: number) => (
                                                             <div key={i} className={"flex w-30 relative"}>
