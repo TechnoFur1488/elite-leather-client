@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     domains: [
-      "elite-leather-client.vercel.app"
+      "elite-leather-server-production.up.railway.app"
     ]
   }
 };
